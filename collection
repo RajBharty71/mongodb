@@ -1,0 +1,37 @@
+
+//create Collection
+  db.createCollection("school")
+
+
+//create collection with validation and dataType
+db.createCollection("user",{
+validator:{
+$jsonSchema:{
+title : "user object validation",
+required: ["name","age","course"],
+properties:{
+  name:{
+   bsonType : "string",
+   description : "Name is only alphabet"
+  },
+  age:{
+   bsonType : "int",
+   description : "Age is only Integer Type",
+   minimum : 8,
+   maximum : 25
+  },
+   course:{
+   bsonType : "string",
+   description : "course is only string Type",
+   enum : ["B.tech","B.com","M.tech"]
+  },
+}
+}
+}});
+ 
+ //Insert one data  in collection
+   db.user.insertOne({
+   "name": "Raj Bharty",
+   "age" : 19,
+    "course" : "B.com"
+});
