@@ -46,3 +46,13 @@ db.student.updateOne(
     age :20,
  }
 });
+/** opertator use in update */
+$set :- "Use to set the value according condition";
+$unset :- "use to remove field";
+$rename :-"use to rename field"; //key 
+$inc :- "use to increment value of field"; //integer
+mul :- "use to multiple value of field"; //integer
+$currentData :- "set the field value to the current data";
+
+//update array operator 
+
