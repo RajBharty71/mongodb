@@ -35,3 +35,14 @@ properties:{
    "age" : 19,
     "course" : "B.com"
 });
+
+//Update collection
+db.student.updateOne(
+ {_id:ObjectId('69318741b0ad9d2224ce5f47')},
+  {
+   $set:
+   {
+    name:"RajBharty",
+    age :20,
+ }
+});
