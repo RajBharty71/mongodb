@@ -1,5 +1,10 @@
 //connect mongodb in ubutnu 
-mongosh
+mongosh;
 
 //create database 
 use databaseName;
+
+//show all Database
+show databases;
+
+

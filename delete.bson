@@ -1,0 +1,13 @@
+//Delete 
+
+1) Delete one Data 
+  
+  db.collection_name.deleteOne({field:"value"});
+  ex:-
+   db.student.deleteOne({name:"Raj Bharty"}); //Note(If there are many data condition(where) data is table the first data(ASC) is Delete)
+
+   2) Delete more than one Data from collections.
+   
+   db.collection_name.deleteMany({field:"value"});//Note (if you want to delete all data pass empty field)
+   ex:-
+    db.student.deleteMany({name:"Raj Bharty"});

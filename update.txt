@@ -1,0 +1,106 @@
+
+
+
+//Update collection
+db.student.updateOne(
+ {_id:ObjectId('69318741b0ad9d2224ce5f47')},
+  {
+   $set:
+   {
+    name:"RajBharty",
+    age :20,
+ }
+});
+/** opertator use in update */
+$set :- "Use to set the value according condition";
+$unset :- "use to remove field";
+$rename :-"use to rename field"; //key 
+$inc :- "use to increment value of field"; //integer
+mul :- "use to multiple value of field"; //integer
+$currentData :- "set the field value to the current data";
+$min :-
+$max :- 
+
+/**$unset  it is use to unset the key from document */
+
+db.student.updateOne(
+  {_id: ObjectId('69318741b0ad9d2224ce5f47')},
+  {$unset:{email:""}
+});
+
+/**$rename  it is use to change the name of key */
+
+db.student.updateOne(
+  {_id  : ObjectId('6932cee880bca60e53ce5f47')},
+{$rename: {"skill":"codeingSkills"}}
+);
+
+//To change  keyname skill  into codeingskill for all doc 
+db.student.updateMany(
+  {},
+  {rename:{skill:"codeingSkills"}}
+);
+
+
+/** $inc (increment in age mean if age is 20 now it become 21)*/
+
+db.student.updateOne(
+ {_id: ObjectId('69318741b0ad9d2224ce5f47')},
+ {
+  $inc: {age:1 }
+ }
+);
+
+/** $mul (multiple  in age mean if age is 20 now it become 40)*/
+
+db.student.updateOne(
+  {_id: ObjectId('69318741b0ad9d2224ce5f47')},
+  {
+   $mul: {age:2 }
+  }
+ );
+
+ /** currentDate */
+ db.student.updateMany({},
+  {$currentDate:{current_date : true}});
+
+/** Array update operator  */
+$push :- "Add an Element to an Array";
+$pop  :- "Removes the first or last Element of an Array";
+$pull :- "Removes all elements from an array that match the query";
+$addToSet :- "Adds distinct element to an array"; //first check element existact to avoid duplicacy
+
+
+/**push*/
+db.student.updateOne(
+{ _id: ObjectId('6932cee880bca60e53ce5f47')},
+{$push: {codeingSkills:"Mongodb"}}
+
+);
+
+/**pop*/
+db.student.updateOne(
+{ _id: ObjectId('6932cee880bca60e53ce5f47')},
+{$pop:{codeingSkills:1}} //1 for end side or -1 is for front side
+);
+
+/**pull */
+
+db.student.updateOne(
+  { _id: ObjectId('6932cee880bca60e53ce5f47')},
+   {$pull:{skill:'CSS'}}
+);
+
+/** Replace :- complete update collection document except conditional data */
+
+db.student.replaceOne(
+ { _id: ObjectId('6932cee880bca60e53ce5f47')},
+ {
+ "name":"Ashishkumar",
+ "mobile": 9835801474,
+ "email" : "rajbhartyandrb@gmail.com",
+ "age"   : 30,
+ "skill" : ['Goverment Employee']
+
+ }
+)

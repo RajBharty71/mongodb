@@ -1,4 +1,3 @@
-
 //create Collection
   db.createCollection("school")
 
@@ -7,7 +6,7 @@
 db.createCollection("user",{
 validator:{
 $jsonSchema:{
-title : "user object validation",
+title : "user object validation",//optional
 required: ["name","age","course"],
 properties:{
   name:{
@@ -35,24 +34,3 @@ properties:{
    "age" : 19,
     "course" : "B.com"
 });
-
-//Update collection
-db.student.updateOne(
- {_id:ObjectId('69318741b0ad9d2224ce5f47')},
-  {
-   $set:
-   {
-    name:"RajBharty",
-    age :20,
- }
-});
-/** opertator use in update */
-$set :- "Use to set the value according condition";
-$unset :- "use to remove field";
-$rename :-"use to rename field"; //key 
-$inc :- "use to increment value of field"; //integer
-mul :- "use to multiple value of field"; //integer
-$currentData :- "set the field value to the current data";
-
-//update array operator 
-
